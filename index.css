@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    background-color: #273033;
+    min-height: 100vh;
+    color: #DCD7C9;
+    box-sizing: border-box;
+    font-family: 'Lato';
+}
+
+.container {
+ width: 100%;
+}
+
+nav {
+    display: flex;
+    background-color: #3c625579;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    color: #EAE7B1;
+}
+
+nav > .title {
+    font-weight: 600;
+    font-size: 1.3vmax;
+}
+
+nav > .corner-btn {
+    font-size: 1.5vmax;
+}
+
+.card-measurements {
+    display: grid;
+    grid-template-rows: 0.01fr repeat(3, 1fr);
+    grid-template-columns:  repeat(2, 1fr);
+    grid-template-areas:
+        'name name' 
+        'temp hum' 
+        'dew press'
+        'wind none';
+    row-gap: 8px;
+    place-items: center;
+    margin-top: 20px;
+
+    border: solid 1px #c9c89d75;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card {
+    background-color: #344044;
+    color: #eae7b1d0;
+    border-radius: 5px;
+    width: 90%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr 0.5fr;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    grid-template-areas: 
+        "t t t t"
+        "i v u d"
+        "f f f f";
+        
+    place-items: center;
+    row-gap: 10px;
+}
+
+/* card */
+.card-title {
+    font-weight: 600;
+    font-size: 1.5vmax;
+    grid-area: t;
+    padding: 10px 0px;
+}
+
+.icon {
+    grid-area: i;
+    font-size: 5vmax;
+}
+
+.value {
+    grid-area: v;
+    font-size: 4.2vmax;
+    font-weight: 700;
+    align-self: flex-start;
+}
+
+.unit {
+    grid-area: u;
+    align-self: end;
+    font-size: 1.5vmax;
+    font-weight: 700;
+    justify-self: start;
+
+    position: relative;
+    top: -11%;
+}
+
+.diff {
+    grid-area: d;
+}
+
+.card-footer {
+    grid-area: f;
+    background-color: #3C6255;
+    width: 80%;
+    border-radius: 3px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vmax;
+}
+
+
+/* cards measurements */
+
+.temp {
+    grid-area: temp;
+}
+
+.hum {
+    grid-area: hum;
+}
+
+.dew {
+    grid-area: dew;
+}
+
+.press {
+    grid-area: press;
+}
+
+.wind-speed {
+    grid-area: wind;
+}
+
+
+/* Media Queries */
+@media screen and (min-width: 768px){
+    /* .nav > .title {
+        font-size: 1.3vw;
+    }
+
+    nav > .corner-btn {
+        font-size: 1.5vw;
+    } */
+
+    .card-measurements {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 0.03fr 1fr;
+        grid-template-areas:
+            'name name name name name' 
+            'temp hum dew press wind';
+    }
+
+    .device-name {
+        grid-area: name;
+        justify-self: flex-start;
+        align-self: center;
+        padding-left: 1%;
+        color: #eae7b1d0;
+        font-weight: 900;
+        font-size: 1.5vmax;
+    }
+
+    .card-title {
+        font-size: 1.5vw;
+    }
+
+    .value {
+        font-size: 4.2vw;
+    }
+
+    .unit {
+        font-size: 1.8vw;
+    }
+
+    .card-footer {
+        font-size: 1.5vw;
+    }
+}
+
